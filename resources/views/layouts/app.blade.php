@@ -156,8 +156,8 @@
 
                 <footer class="footer">
                     <div class="w-100 clearfix">
-                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2022 PIES Car Parking System v2.0. All Rights Reserved.</span>
-                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Developed with <i class="fa fa-heart text-danger"></i> by <a href="https://itsourcecode.com/" class="text-dark" target="_blank">PIES COMPANY</a></span>
+                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2023 Secure Parking System - All Rights Reserved.</span>
+                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Developed by <a href="https://secureparking.co.id/" class="text-dark" target="_blank">PT. SECURINDO PACKATAMA INDONESIA</a></span>
                     </div>
                 </footer>
 

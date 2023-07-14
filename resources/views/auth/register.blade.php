@@ -36,7 +36,7 @@
                             <div class="logo-centered">
                                 <a href="../index.html"><img src="../src/img/brand.svg" alt=""></a>
                             </div>
-                            <h3>New to JSS Parking System</h3>
+                            <h3>Secure Parking Register</h3>
                             <p>Join us today! It takes only few steps</p>
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf

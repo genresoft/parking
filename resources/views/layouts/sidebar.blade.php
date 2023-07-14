@@ -2,10 +2,8 @@
     <div class="sidebar-header" style="background-color: black; color: white;">
         <a class="header-brand" href="index.html">
             <div class="logo-img" >
-                PIES
-               {{-- <img width="40" height="40" src="{{ asset('img/logo.png') }}" class="header-brand-img" alt="lavalite"> --}}
+               <img height="35" src="{{ asset('img/secure.png') }}" class="header-brand-img" alt="lavalite">
             </div>
-            <span class="text">&nbsp; &nbsp; Car Parking</span>
         </a>
         <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
         <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button>
