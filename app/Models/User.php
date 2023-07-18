@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -43,24 +44,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function booted(){
+    // public static function booted(){
 
-         /** Make avata */
+    //      /** Make avata */
 
-        static::creating(function($model)
-        {
-            $path = 'users/avatars/';
-            $fontPath = public_path('fonts/Oliciy.ttf');
-            $char = strtoupper($model->name[0]);
-            $newAvatarName = rand(12,34353).time().'_avatar.png';
-            $dest = $path.$newAvatarName;
+    //     static::creating(function($model)
+    //     {
+    //         $path = 'users/avatars/';
+    //         $fontPath = public_path('fonts/Oliciy.ttf');
+    //         $char = strtoupper($model->name[0]);
+    //         $newAvatarName = rand(12,34353).time().'_avatar.png';
+    //         $dest = $path.$newAvatarName;
 
-            $createAvatar = makeAvatar($fontPath,$dest,$char);
-            $picture = $createAvatar == true ? $newAvatarName : '';
+    //         $createAvatar = makeAvatar($fontPath,$dest,$char);
+    //         $picture = $createAvatar == true ? $newAvatarName : '';
 
-            $model->avatar = $picture;
-        });
-    }
+    //         $model->avatar = $picture;
+    //     });
+    // }
 }
 
 
