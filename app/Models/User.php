@@ -18,22 +18,14 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'avatar',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'avatar'];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * The attributes that should be cast.
@@ -44,25 +36,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public static function booted(){
+    public static function booted()
+    {
+        /** Make avata */
 
-    //      /** Make avata */
+        static::creating(function ($model) {
+            $path = 'users/avatars/';
+            $fontPath = public_path('fonts/Oliciy.ttf');
+            $char = strtoupper($model->name[0]);
+            $newAvatarName = rand(12, 34353) . time() . '_avatar.png';
+            $dest = $path . $newAvatarName;
 
-    //     static::creating(function($model)
-    //     {
-    //         $path = 'users/avatars/';
-    //         $fontPath = public_path('fonts/Oliciy.ttf');
-    //         $char = strtoupper($model->name[0]);
-    //         $newAvatarName = rand(12,34353).time().'_avatar.png';
-    //         $dest = $path.$newAvatarName;
+            $createAvatar = makeAvatar($fontPath, $dest, $char);
+            $picture = $createAvatar == true ? $newAvatarName : '';
 
-    //         $createAvatar = makeAvatar($fontPath,$dest,$char);
-    //         $picture = $createAvatar == true ? $newAvatarName : '';
-
-    //         $model->avatar = $picture;
-    //     });
-    // }
+            $model->avatar = $picture;
+        });
+    }
 }
-
-
-

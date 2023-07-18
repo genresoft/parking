@@ -26,10 +26,6 @@ use App\Http\Controllers\ProfileController;
 
         Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile.edit');
         Route::post('/profile', [App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
-
-        // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        // Route::put('password', [PasswordController::class, 'update'])->name('password.update');
     });
 
     // Admin
