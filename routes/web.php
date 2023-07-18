@@ -26,6 +26,9 @@ use App\Http\Controllers\ProfileController;
 
         Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile.edit');
         Route::post('/profile', [App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
+
+        Route::resource('/vehicles', App\Http\Controllers\VehicleController::class);
+        Route::resource('/vehiclesIn', App\Http\Controllers\VehicleInController::class);
     });
 
     // Admin
@@ -34,17 +37,8 @@ use App\Http\Controllers\ProfileController;
         Route::resource('/user', App\Http\Controllers\UserController::class);
         Route::resource('/customers', App\Http\Controllers\CustomerController::class);
         Route::resource('/categories', App\Http\Controllers\CategoryController::class);
-        Route::resource('/vehicles', App\Http\Controllers\VehicleController::class);
-        Route::resource('/vehiclesIn', App\Http\Controllers\VehicleInController::class);
         Route::resource('/vehiclesOut', App\Http\Controllers\VehicleOutController::class);
-
         Route::get('reports/index', [App\Http\Controllers\ReportController::class, 'index'])->name('reports.index');
-    });
-
-    //User
-    Route::middleware('auth', 'user')->group(function () {
-        Route::resource('/vehicles', App\Http\Controllers\VehicleController::class);
-        Route::resource('/vehiclesIn', App\Http\Controllers\VehicleInController::class);
     });
 
 
