@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class UserController extends Controller
 {
@@ -22,7 +23,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        //
+        User::updateOrCreate(['id' => $request->user_id], $request->except('user_id'));
+
+        return redirect()->back()->with('success', 'User Created Successfully!!');
     }
 
     /**
@@ -43,10 +46,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        return view('admins.edit');
+        return view('admins.edit', compact('user'));
+    }
 
+    public function profile() {
+        $userId = Auth::user()->id;
+        $user = User::where('id', $userId)->first();
+
+        return view('admins.edit', compact('user'));
     }
 
     /**
@@ -56,9 +65,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        User::updateOrCreate(['id' => $request->user_id], $request->except('user_id'));
+
+        return redirect()->back()->with('success', 'User Created Successfully!!');
     }
 
     /**

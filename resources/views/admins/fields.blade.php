@@ -1,8 +1,15 @@
-<form class="forms-sample" method="POST" accept="{{ route('user.store') }}">
+@if (Auth::user()->hasRole('admin'))
+    <form class="forms-sample" method="POST" action="{{ route('user.store') }}">
+@else
+    <form class="forms-sample" method="POST" action="{{ route('profile.update') }}">
+@endif
     @csrf
     <div class="form-group">
         <label for="exampleInputName1">Name</label>
         <input type="text" name="name" value="{{ isset($user) ? $user->name : '' }}" class="form-control" id="exampleInputName1" placeholder="Name">
+        @if (isset($user))
+            <input type="hidden" name="user_id" value="{{ $user->id }}">
+        @endif
     </div>
     <div class="row">
         <div class="col-md-6">

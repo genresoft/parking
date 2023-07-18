@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header"><h3>Edit Adminstrator</h3></div>
             <div class="card-body">
-              @include('admins.fields')
+                @include('admins.fields')
             </div>
         </div>
     </div>

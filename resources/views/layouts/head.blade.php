@@ -1,7 +1,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Petugas | Secure Parking - PT. SECURINDO PACKATAMA INDONESIA</title>
+    @if (Auth::user()->hasRole('admin'))
+        <title>Petugas | Secure Parking - PT. SECURINDO PACKATAMA INDONESIA</title>
+    @else
+        <title>Customer | Secure Parking - PT. SECURINDO PACKATAMA INDONESIA</title>
+    @endif
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
