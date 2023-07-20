@@ -82,7 +82,7 @@ function getOfflineUnseenSeenIcon()
 
  function getVehicleStatus()
 {
-    return [0 => 'Select', 1 => 'OnGoing', 2 => 'Expired', 3 => 'ReNewal'];
+    return [1 => 'Active', 2 => 'InActive'];
 }
 
 function getParkingareas()

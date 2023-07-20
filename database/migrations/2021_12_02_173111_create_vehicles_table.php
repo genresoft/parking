@@ -19,7 +19,7 @@ class CreateVehiclesTable extends Migration
             $table->string('plat_number')->nullable();
             $table->string('packing_number')->nullable();
             $table->string('registration_number')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->unsignedBigInteger('duration')->default(0);
             $table->unsignedBigInteger('packing_charge')->default(0);
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
