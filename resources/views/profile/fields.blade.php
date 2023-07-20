@@ -1,4 +1,4 @@
-<form class="forms-sample" method="POST" action="{{ route('user.store') }}">
+<form class="forms-sample" method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="exampleInputName1">Name</label>

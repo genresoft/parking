@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 
 class UserController extends Controller
@@ -23,7 +25,34 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        User::updateOrCreate(['id' => $request->user_id], $request->except('user_id'));
+        $data = $request->all();
+
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $data = $request->all(); 
+
+            $fileName = 'avatars/' . $data['user_id'] . '-' . $data['name'] . '.png';
+            $path = $avatar->storeAs('', $fileName, 'public');
+
+            if ($data['avatar'] !== null) {
+                Storage::disk('public')->delete($data['avatar']);
+            }
+
+            $data['avatar'] = $path;
+
+            User::where('id', $data['user_id'])->create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'avatar' => $data['avatar']
+            ]);
+        }
+
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
 
         return redirect()->back()->with('success', 'User Created Successfully!!');
     }
@@ -55,7 +84,7 @@ class UserController extends Controller
         $userId = Auth::user()->id;
         $user = User::where('id', $userId)->first();
 
-        return view('admins.edit', compact('user'));
+        return view('profile.edit', compact('user'));
     }
 
     /**
@@ -67,7 +96,30 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        User::updateOrCreate(['id' => $request->user_id], $request->except('user_id'));
+        $data = $request->all();
+
+        User::where('id', $data['user_id'])->update([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+
+            $fileName = 'avatars/' . $data['user_id'] . '-' . $data['name'] . '.png';
+            $path = $avatar->storeAs('', $fileName, 'public');
+
+            if ($data['avatar'] !== null) {
+                Storage::disk('public')->delete($data['avatar']);
+            }
+
+            $data['avatar'] = $path;
+
+            User::where('id', $data['user_id'])->update([
+                'avatar' => $data['avatar']
+            ]);
+        }
 
         return redirect()->back()->with('success', 'User Created Successfully!!');
     }
