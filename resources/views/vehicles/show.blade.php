@@ -25,7 +25,7 @@
                         <li class="list-group-item">Per Day Charge</li>
                     </div>
                     <div class="col-md-8">
-                        <li class="list-group-item text-right"><strong>GMD {{ $vehicle->packing_charge }} </strong></li>
+                        <li class="list-group-item text-right"><strong>Rp. {{ $vehicle->packing_charge }} </strong></li>
                     </div>
                 </div>
                     <div class="row">
@@ -33,7 +33,7 @@
                             <li class="list-group-item">Total Amount</li>
                         </div>
                         <div class="col-md-8">
-                            <li class="list-group-item text-right"><strong> GMD {{ $vehicle->duration *  $vehicle->packing_charge }}</strong></li>
+                            <li class="list-group-item text-right"><strong> Rp. {{ $vehicle->duration *  $vehicle->packing_charge }}</strong></li>
                         </div>
                         </div>
 
