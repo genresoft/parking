@@ -24,9 +24,9 @@ class Category extends Model
 
     public static function booted(){
 
-       static::creating(function($model)
-       {
-           $model->created_by = auth()->id();
-       });
-   }
+        static::creating(function($model)
+        {
+            $model->created_by = auth()->id();
+        });
+    }
 }

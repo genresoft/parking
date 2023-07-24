@@ -24,15 +24,15 @@
             <td>{{ $vehicleIn->user->name }}</td>
             <td>
                 <div class="table-actions">
-                    <a href="#"><i class="ik ik-print"></i></a>
-                    <a href="{{ route('vehiclesIn.edit', $vehicleIn->id) }}"><i class="ik ik-edit-2"></i></a>
+                    <a href="#" onclick="window.print()"><i class="ik ik-print"></i></a>
+                    {{-- <a href="{{ route('vehiclesIn.edit', $vehicleIn->id) }}"><i class="ik ik-edit-2"></i></a>
                     <a href="#" onclick=" confirm('Are you sure you want to delete this?');
                     document.getElementById('delete-data').submit();"><i class="ik ik-trash-2"></i></a>
 
-                     <form id="delete-data" action="{{ route('vehiclesIn.destroy', $vehicleIn->id) }}" method="POST" class="d-none">
+                    <form id="delete-data" action="{{ route('vehiclesIn.destroy', $vehicleIn->id) }}" method="POST" class="d-none">
                         @method('Delete')
                         @csrf
-                    </form>
+                    </form> --}}
                 </div>
             </td>
             <td></td>

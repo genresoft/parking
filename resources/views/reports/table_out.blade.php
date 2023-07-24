@@ -24,7 +24,7 @@
             <td>{{ $vehicleOut->user->name }}</td>
             <td>
                 <div class="table-actions">
-                    <a href="#"><i class="ik ik-printer"></i></a>
+                    <a href="#" onclick="window.print()"><i class="ik ik-printer"></i></a>
                     {{-- <a href="{{ route('vehiclesOut.edit', $vehicleOut->id) }}"><i class="ik ik-edit-2"></i></a>
                     <a href="#" onclick=" confirm('Are you sure you want to delete this?');
                     document.getElementById('delete-data').submit();"><i class="ik ik-trash-2"></i></a>
