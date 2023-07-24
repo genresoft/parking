@@ -2,7 +2,7 @@
     @csrf
     <div class="form-group">
         <label for="exampleInputName1">Name</label>
-        <input type="text" name="name" value="{{ isset($category) ? $category->name : '' }}" class="form-control" id="exampleInputName1" placeholder="Name">
+        <input type="text" name="name" value="{{ isset($category) ? $category->name : '' }}" class="form-control" id="exampleInputName1" placeholder="Name" required>
         @if (isset($category))
         <input type="hidden" name="category_id" value="{{ $category->id }}">
         @endif

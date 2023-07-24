@@ -23,7 +23,7 @@ class CategoryController extends Controller
     {
         Category::updateOrCreate(['id' => $request->category_id], $request->except('category_id'));
 
-        return redirect()->route('categories.index')->with('success', 'category Created Successfully!!');
+        return redirect()->route('categories.index')->with('success', 'Category Created Successfully!!');
     }
 
     public function show(Category $category)

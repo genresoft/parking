@@ -4,7 +4,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="exampleInputName1">Select Vehicle</label>
-                <select name="vehicle_id" class="form-control">
+                <select name="vehicle_id" class="form-control" required>
                     <option value="">Select</option>
                     @foreach ($vehicles as $vehicle)
                         <option value="{{ $vehicle->id }}" @if (isset($vehiclesIn))
@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-4">
             <label for="exampleInputName1">Select Parking Area</label>
-            <select name="parking_area" class="form-control">
+            <select name="parking_area" class="form-control" required>
                 @foreach (getParkingareas() as $parking_area)
                     <option value="{{ $parking_area }}" @if (isset($vehiclesIn))
                         {{ $vehiclesIn->parking_area == $parking_area ? 'selected' : '' }}
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail3">Parking Number</label>
                 <input type="text" name="parking_number" value="{{ isset($vehiclesIn) ? $vehiclesIn->parking_number : '' }}"
-                    class="form-control" id="exampleInputEmail3" placeholder="Parking Number">
+                    class="form-control" id="exampleInputEmail3" placeholder="Parking Number" required>
             </div>
         </div>
     </div>

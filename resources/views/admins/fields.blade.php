@@ -3,7 +3,7 @@
     <div class="form-group">
         <label for="exampleInputName1">Name</label>
         <input type="text" name="name" value="{{ isset($user) ? $user->name : '' }}" class="form-control"
-            id="exampleInputName1" placeholder="Name">
+            id="exampleInputName1" placeholder="Name" required>
         @if (isset($user))
             <input type="hidden" name="user_id" value="{{ $user->id }}">
         @endif
@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail3">Email address</label>
                 <input type="email" name="email" value="{{ isset($user) ? $user->email : '' }}" class="form-control"
-                    id="exampleInputEmail3" placeholder="Email">
+                    id="exampleInputEmail3" placeholder="Email" required>
             </div>
         </div>
         <div class="col-md-6">
@@ -29,7 +29,7 @@
     <div class="form-group">
         <label for="exampleInputPassword4">Password</label>
         <input type="password" name="password" class="form-control"
-            id="exampleInputPassword4" placeholder="Password">
+            id="exampleInputPassword4" placeholder="Password" required>
     </div>
 
     <div class="form-group">

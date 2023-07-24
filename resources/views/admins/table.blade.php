@@ -13,7 +13,7 @@
         @foreach ($users as $key => $user)
         <tr>
             <td>{{ $key+1 }}</td>
-            <td><img src="{{ getUserAvatar($user->avatar) }}" class="table-user-thumb" alt=""></td>
+            <td><img src="{{ asset('storage/' . Auth::user()->avatar) }}" class="table-user-thumb" alt=""></td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->created_at->format('Y/m/d') }}</td>

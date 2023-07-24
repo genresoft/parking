@@ -4,7 +4,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="exampleInputName1">Select Vehicle</label>
-                <select name="vehicleIn_id" class="form-control">
+                <select name="vehicleIn_id" class="form-control" required>
                 <option value="">Select</option>
                     @foreach ($vehiclesIn as $vehicleIn)
                         <option value="{{ $vehicleIn->id }}" @if (isset($vehiclesOut))
